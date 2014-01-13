@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>CmsAdmin2</title>
+	  <%= stylesheet_link_tag  "bootstrap/bootstrap.min.css", "bootstrap/bootstrap-theme.min.css", "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<%= yield %>
+
+		<%= javascript_include_tag "bootstrap.min.js", "application", "data-turbolinks-track" => true %>
+	</body>
+</html>
