@@ -1,0 +1,5 @@
+.DS_Store
+.rvmrc
+log/development.log
+tmp/**/*
+public/system/*
