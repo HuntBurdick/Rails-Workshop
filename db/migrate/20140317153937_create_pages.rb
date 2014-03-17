@@ -8,6 +8,6 @@ class CreatePages < ActiveRecord::Migration
       t.column "created_on", :timestamp
       t.column "updated_on", :timestamp
     end
-    
+    Page.create :name => 'Home', :body => 'Welcome to CMS_Admin2', :position => 1
   end
 end

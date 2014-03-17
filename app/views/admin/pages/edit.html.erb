@@ -1,0 +1,7 @@
+<%= simple_form_for @page, :url => url_for(:controller => 'admin/pages', :action => 'update'), :method => 'put', :html => { :role => "form" } do |form| %>
+
+	<%= render :partial => 'form', :object => form %>
+	
+	<%= submit_tag 'Submit Page', :class => 'btn btn-primary' %>
+
+<% end %>

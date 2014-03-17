@@ -1,0 +1,34 @@
+<% if @pages.blank? %>
+	<h3>No pages have been added yet.</h3>
+<% else %>
+	<div class="module_list">
+		<div class="module_actions">
+			<h2>Pages</h2>
+			<div class="action_items">
+				<%= link_to 'Add', new_admin_page_path %>
+			</div>
+			<div class="clearboth"></div>
+		</div>
+		<% for page in @pages %>
+			<div class="module_item">
+				<div class="item_name">
+					<%= page.name %>
+				</div>
+				<div class="module_item_actions">
+					<a href="">
+						Publish
+					</a>
+					<a href="">
+						Edit
+					</a>
+					<a href="">
+						Delete
+					</a>
+					<a href="">
+						Order
+					</a>
+				</div>
+			</div>
+		<% end %>
+	</div>
+<% end %>
