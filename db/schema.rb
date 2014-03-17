@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113232231) do
+ActiveRecord::Schema.define(version: 20140317161416) do
+
+  create_table "pages", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.boolean  "published",  default: false
+    t.integer  "position"
+    t.datetime "created_on"
+    t.datetime "updated_on"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "page_id"
+    t.boolean  "published"
+    t.string   "meta_description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

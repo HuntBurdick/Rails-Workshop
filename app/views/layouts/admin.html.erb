@@ -6,54 +6,26 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>CMS Admin</title>
+      <title>CMS Admin2</title>
       <meta name="description" content="">
       <meta name="viewport" content ="width=device-width; initial-scale=1.0;">
 
-		  <%= stylesheet_link_tag  "normalize.min.css", "admin/main", media: "all", "data-turbolinks-track" => true %>
+		  <%= stylesheet_link_tag  "admin/application", media: "all", "data-turbolinks-track" => true %>
+		  <%= yield :stylesheets %>
+
 		  <%= csrf_meta_tags %>
 
     </head>
     
     <body>
 
-			<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-			  <div class="container">
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span></a>
-			    </div>
-			    <div class="navbar-collapse collapse">
-			      <ul class="nav navbar-nav">
-			        <li><a href="/admin/pages">Pages</a></li>
-			        <li><a href="/admin/posts">Posts</a></li>
-			        <li><a href="/admin/users">Users</a></li>
-			        <li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <b class="caret"></b></a>
-			          <ul class="dropdown-menu">
-			            <li><a href="/users"><span class="glyphicon glyphicon-user"></span> Users</a></li>
-			            <li><a href="#"><span class="glyphicon glyphicon-stats"></span> Reports</a></li>
-			            <li><a href="/configurations"><span class="glyphicon glyphicon-adjust"></span> Configuration</a></li>
-			          </ul>
-			        </li>
-			      </ul>
-			      <ul class="nav navbar-nav navbar-right">
-			        <li>
-			          <a href="">
-			            <span class="glyphicon glyphicon-remove-circle"></span>
-			          </a>
-			        </li>
-			      </ul>
-			    </div>
-			  </div>
-			</div>
+			<%= render :partial => 'admin/menu.html.erb' %>
 
-			<%= yield %>
+			<div class="admin_content">
+				<div class="container">
+					<%= yield %>
+				</div>
+			</div>
 
 			<%= javascript_include_tag :application, "data-turbolinks-track" => true %>
 		</body>

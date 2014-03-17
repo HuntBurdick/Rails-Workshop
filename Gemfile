@@ -6,13 +6,23 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-# gem 'pg'
+# Authentication and permissions
 gem 'devise'
 gem 'cancan'
-gem 'will_paginate', '~> 3.0'
 gem 'acts_as_list'
 gem 'RedCloth'
-gem 'formtastic'
+
+# Bootstrap
+gem 'bootstrap-datepicker-rails', '~> 1.0.0.7'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-will_paginate'
+
+# Forms
+gem 'simple_form'
+
+# Uploads
+gem "paperclip", "~> 4.1"
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

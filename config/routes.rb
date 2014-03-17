@@ -1,5 +1,4 @@
 CmsAdmin2::Application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,7 +7,30 @@ CmsAdmin2::Application.routes.draw do
   root :to => "home#index"
 
   # CMS root
-  get 'admin' => "admin#dashboard"
+  get 'admin' => "admin/dashboard#index"
+
+  get 'users/sign_up' => "admin/admin#index"
+
+  devise_for :users
+
+  namespace :admin do
+    resources :pages do
+      collection do
+        get 'sort_up'
+        get 'sort_down'
+        get 'feature'
+        get 'remove'
+      end
+    end
+    resources :posts do
+      collection do
+        get 'sort_up'
+        get 'sort_down'
+        get 'feature'
+        get 'remove'
+      end
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
