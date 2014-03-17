@@ -1,25 +1,45 @@
 .admin_content {
-	margin-top: 50px;
+	margin-top: 65px;
 	.container {
 		.module_list {
-			padding:20px;
 			.module_actions {
 				padding:10px;
 				background: #eee;
 				text-align: right;
 				clear:both;
 				border-radius: 10px;
+				margin-bottom: 20px;
 				h2 {
-					float:left;
-					margin:0px;
+					color: #7B7B7B;
+			    float: left;
+			    font-size: 1.6em;
+			    margin: 0;
+			    padding: 10px;
 				}
 				.action_items {
 					float:right;
+					font-size: 1.5em;
+					padding:8px 10px 0px 0px;
 				}
 			}
 			.module_item {
 				padding:10px;
 				border-bottom: 1px solid #ddd;
+				.item_name {
+					@media screen and (min-width: $breakpoint_768) {
+						width: 70%;
+						display: inline-block;
+						vertical-align: top;
+					}
+				}
+				.module_item_actions {
+					@media screen and (min-width: $breakpoint_768) {
+						width: 25%;
+						display: inline-block;
+						vertical-align: top;
+						text-align: right;
+					}
+				}
 			}
 		}
 	}

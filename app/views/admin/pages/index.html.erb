@@ -5,7 +5,9 @@
 		<div class="module_actions">
 			<h2>Pages</h2>
 			<div class="action_items">
-				<%= link_to 'Add', new_admin_page_path %>
+				<%= link_to new_admin_page_path do %>
+					<p><span class="glyphicon glyphicon-plus"></span></p>
+				<% end %>
 			</div>
 			<div class="clearboth"></div>
 		</div>
@@ -15,18 +17,20 @@
 					<%= page.name %>
 				</div>
 				<div class="module_item_actions">
-					<a href="">
-						Publish
-					</a>
-					<a href="">
-						Edit
-					</a>
-					<a href="">
-						Delete
-					</a>
-					<a href="">
-						Order
-					</a>
+					<p>
+						<a href="">
+							<span class="glyphicon glyphicon-ok <%= page.published == true ? '' : 'dead' %>"></span>
+						</a>
+						<%= link_to :action => "edit", :id => page do %>
+							<span class="glyphicon glyphicon-edit"></span>
+						<% end %>
+						<a href="">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+						<a href="">
+							Order
+						</a>
+					</p>
 				</div>
 			</div>
 		<% end %>
