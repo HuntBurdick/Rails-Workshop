@@ -1,13 +1,15 @@
-
-
-<%= form_for("user", :url => user_session_path, :html => { :class => "form-signin" }) do |f| %>
-	<h2 class="form-signin-heading"><a target="_blank" href=""></a></h2>
-  <%= f.text_field :email, :class => 'form-control', :placeholder => 'Email Address' %>
-  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
-  <label class="checkbox">
-  	<%= f.check_box :remember_me %> Remember me
-  </label>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <%= render "devise/shared/links" %>
-  <p class="copyright">Copyright &copy; 2014</p>
+<%= form_for("user", :url => user_session_path, :html => { :class => "form-signin", :role => "form" }) do |f| %>
+	<h2 class="form-signin-heading">CMS Admin2</h2>
+	<div class="form-group">
+	  <%= f.text_field :email, :class => 'form-control', :placeholder => 'E-mail Address' %>
+	  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
+	</div>
+	<div class="form-group">
+	  <%= f.check_box :remember_me %> Remember me
+	</div>
+	<div class="form-group">
+  	<button class="btn btn-lg btn-primary btn-block" value="Sign in" type="submit">Sign in</button>
+  	<%= render "devise/shared/links" %>
+  </div>
+  <p class="copyright">Copyright &copy; <%= Time.now.year %> CMS Admin2</p>
 <% end %>
