@@ -16,25 +16,28 @@ CmsAdmin2::Application.routes.draw do
   namespace :admin do
     resources :pages do
       collection do
-        get 'sort_up'
-        get 'sort_down'
-        get 'feature'
+        get 'move_up'
+        get 'move_down'
+        get 'publish'
+        get 'destroy'
         get 'remove'
       end
     end
     resources :posts do
       collection do
-        get 'sort_up'
-        get 'sort_down'
-        get 'feature'
+        get 'move_up'
+        get 'move_down'
+        get 'publish'
+        get 'destroy'
         get 'remove'
       end
     end
     resources :users do
       collection do
-        get 'sort_up'
-        get 'sort_down'
-        get 'feature'
+        get 'move_up'
+        get 'move_down'
+        get 'publish'
+        get 'destroy'
         get 'remove'
       end
     end

@@ -33,11 +33,17 @@
 					}
 				}
 				.module_item_actions {
+					font-size: 1.6em;
 					@media screen and (min-width: $breakpoint_768) {
 						width: 25%;
 						display: inline-block;
 						vertical-align: top;
 						text-align: right;
+					}
+					.glyphicon-ok {
+						&.dead {
+							color:#666;
+						}
 					}
 				}
 			}

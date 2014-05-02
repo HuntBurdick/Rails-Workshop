@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :body
       t.integer :page_id
       t.boolean :published
+      t.integer :position
       t.string :meta_description
       t.attachment :image
 

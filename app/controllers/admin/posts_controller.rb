@@ -3,7 +3,7 @@ module Admin
   class PostsController < AdminController
     
     def index
-      @posts = Post.paginate(:page => params[:page], :per_page => 20)
+      @posts = Post.paginate(:page => params[:page], :order => 'position ASC', :per_page => 20)
     end
     
 
@@ -41,7 +41,55 @@ module Admin
       end
     end
 
+    def publish
+      post = Post.find(params[:post_id])
+      post.published = ( post.published == true ? false : true)
+      post.save
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def destroy
+      post = Post.find(params[:post_id])
+      post.destroy
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def move_up
+      post = Post.find(params[:post_id])
+      post.move_higher
+      post.save
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def move_down
+      post = Post.find(params[:post_id])
+      post.move_lower
+      post.save
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
     private
+
+      def list_refresh
+        @posts = Post.paginate(:page => params[:page], :order => 'position ASC', :per_page => 20)
+        return render(:file => 'admin/posts/list_refresh.js.erb')
+      end
 
       def page_params
         params.require(:post).permit( :title, :body, :page_id, :published, :meta_description, :image, :created_on, :updated_on)

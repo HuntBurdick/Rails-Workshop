@@ -11,28 +11,8 @@
 			</div>
 			<div class="clearboth"></div>
 		</div>
-		<% for page in @pages %>
-			<div class="module_item">
-				<div class="item_name">
-					<%= page.name %>
-				</div>
-				<div class="module_item_actions">
-					<p>
-						<a href="">
-							<span class="glyphicon glyphicon-ok <%= page.published == true ? '' : 'dead' %>"></span>
-						</a>
-						<%= link_to :action => "edit", :id => page do %>
-							<span class="glyphicon glyphicon-edit"></span>
-						<% end %>
-						<a href="">
-							<span class="glyphicon glyphicon-trash"></span>
-						</a>
-						<a href="">
-							Order
-						</a>
-					</p>
-				</div>
-			</div>
-		<% end %>
+		<div class="module_partial">
+			<%= render :partial => 'list' %>
+		</div>
 	</div>
 <% end %>
