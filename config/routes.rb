@@ -30,6 +30,14 @@ CmsAdmin2::Application.routes.draw do
         get 'remove'
       end
     end
+    resources :users do
+      collection do
+        get 'sort_up'
+        get 'sort_down'
+        get 'feature'
+        get 'remove'
+      end
+    end
   end
 
   # Example of regular route:

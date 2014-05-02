@@ -3,7 +3,7 @@ module Admin
   class PostsController < AdminController
     
     def index
-      @posts = Post.find(:all)
+      @posts = Post.paginate(:page => params[:page], :per_page => 20)
     end
     
 

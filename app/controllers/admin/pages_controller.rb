@@ -4,7 +4,7 @@ module Admin
 
 
     def index
-      @pages = Page.find(:all)
+      @pages = Page.paginate(:page => params[:page], :per_page => 20)
     end
     
 

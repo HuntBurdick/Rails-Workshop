@@ -1,3 +1,5 @@
 class Page < ActiveRecord::Base
-	has_many :posts
+	validates :name, :presence => true, :uniqueness => true
+
+	has_many :posts, dependent: :destroy
 end

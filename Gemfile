@@ -15,7 +15,7 @@ gem 'RedCloth'
 # Bootstrap
 gem 'bootstrap-datepicker-rails', '~> 1.0.0.7'
 gem 'bootstrap-sass', '~> 3.1.1'
-gem 'bootstrap-will_paginate'
+gem 'will_paginate-bootstrap'
 
 # Forms
 gem 'simple_form'

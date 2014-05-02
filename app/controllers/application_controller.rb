@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   def layout
     # only turn it off for login pages:
-    is_a?(Devise::SessionsController) ? false : "application"
+    is_a?(Devise::SessionsController) ? false : "admin"
     # or turn layout off for every devise controller:
-    devise_controller? && "application"
+    # devise_controller? && "application"
   end
 
   def after_sign_in_path_for(resource)

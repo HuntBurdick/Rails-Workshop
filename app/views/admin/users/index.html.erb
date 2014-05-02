@@ -1,0 +1,33 @@
+<div class="module_list">
+  <div class="module_actions">
+    <h2>Users</h2>
+    <div class="action_items">
+      <%= link_to new_admin_user_path do %>
+        <p><span class="glyphicon glyphicon-plus"></span></p>
+      <% end %>
+    </div>
+    <div class="clearboth"></div>
+  </div>
+  <% unless @users.blank? %>
+    <% for user in @users %>
+      <div class="module_item">
+        <div class="item_name">
+          <%= user.email %>
+        </div>
+        <div class="module_item_actions">
+          <p>
+            <%= link_to :action => "edit", :id => user do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+            <a href="">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+            <a href="">
+              Order
+            </a>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
