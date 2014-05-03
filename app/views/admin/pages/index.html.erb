@@ -14,5 +14,6 @@
 		<div class="module_partial">
 			<%= render :partial => 'list' %>
 		</div>
+		<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
 	</div>
 <% end %>

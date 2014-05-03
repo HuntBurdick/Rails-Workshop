@@ -1,2 +1,3 @@
+<%= form.input :page_id, collection: Page.find(:all, :order => "name DESC") %>
 <%= form.input :title %>
 <%= form.input :body %>

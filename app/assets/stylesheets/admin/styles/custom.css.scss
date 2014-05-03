@@ -25,17 +25,28 @@
 			.module_item {
 				padding:10px;
 				border-bottom: 1px solid #ddd;
+				&.well {
+					position:relative;
+					.module_item_actions {
+						position: absolute;
+						right:0px;
+						top:16px;
+					}
+				}
 				.item_name {
+					margin:20px;
 					@media screen and (min-width: $breakpoint_768) {
-						width: 70%;
+						margin:0px;
+						width: 60%;
 						display: inline-block;
 						vertical-align: top;
 					}
 				}
 				.module_item_actions {
-					font-size: 1.6em;
+					font-size: 1.2em;
+					float: right;
 					@media screen and (min-width: $breakpoint_768) {
-						width: 25%;
+						width: 30%;
 						display: inline-block;
 						vertical-align: top;
 						text-align: right;
@@ -43,6 +54,11 @@
 					.glyphicon-ok {
 						&.dead {
 							color:#666;
+						}
+					}
+					p {
+						a {
+							margin:10px;
 						}
 					}
 				}

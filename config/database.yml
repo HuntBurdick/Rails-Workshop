@@ -9,16 +9,28 @@
 #   pool: 5
 #   timeout: 5000
 
-# For Work Use
+
+#For Home Use
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: cms_admin2
   pool: 5
-  username: huntburdick
-  password: 
+  username: postgres
+  password: freeride
+  port: 5432 
   host: localhost
-  port: 5432
+
+# For Work Use
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: cms_admin2
+#   pool: 5
+#   username: huntburdick
+#   password: 
+#   host: localhost
+#   port: 5432
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
