@@ -15,6 +15,7 @@ module Admin
 	  # GET /users/1
 	  # GET /users/1.json
 	  def show
+	  	@user = User.find(:user_id)
 	  end
 
 	  # GET /users/new
@@ -29,29 +30,13 @@ module Admin
 	  # POST /users
 	  # POST /users.json
 	  def create
-	    @user = User.new(user_params)
+	    @user = User.new(:email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
 
 	    respond_to do |format|
 	      if @user.save
-	        format.html { redirect_to @user, notice: 'user was successfully created.' }
-	        format.json { render action: 'show', status: :created, location: @user }
+	        format.html { redirect_to :controller => 'admin/users', notice: 'user was successfully created.' }
 	      else
 	        format.html { render action: 'new' }
-	        format.json { render json: @user.errors, status: :unprocessable_entity }
-	      end
-	    end
-	  end
-
-	  def new_user
-	    @user = User.new(:email => params[:user][:email], :username => params[:user][:username], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-
-	    respond_to do |format|
-	      if @user.save
-	        format.html { redirect_to @user, notice: 'user was successfully created.' }
-	        format.json { render action: 'show', status: :created, location: @user }
-	      else
-	        format.html { render action: 'new' }
-	        format.json { render json: @user.errors, status: :unprocessable_entity }
 	      end
 	    end
 	  end
