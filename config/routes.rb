@@ -27,6 +27,7 @@ CmsAdmin2::Application.routes.draw do
       collection do
         get 'move_up'
         get 'move_down'
+        get 'new_post_for'
         get 'publish'
         get 'destroy'
         get 'remove'

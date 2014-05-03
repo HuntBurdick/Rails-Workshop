@@ -4,7 +4,7 @@ module Admin
 
 
     def index
-      @pages = Page.paginate(:page => params[:page], :order => 'name DESC', :per_page => 10)
+      @pages = Page.paginate(:page => params[:page], :order => 'position ASC', :per_page => 10)
     end
     
 
@@ -88,7 +88,7 @@ module Admin
     private
 
       def list_refresh
-        @pages = Page.paginate(:page => params[:page], :order => 'name DESC', :per_page => 10)
+        @pages = Page.paginate(:page => params[:page], :order => 'position ASC', :per_page => 10)
         return render(:file => 'admin/pages/list_refresh.js.erb')
       end
 
