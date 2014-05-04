@@ -12,7 +12,7 @@
     <% for user in @users %>
       <div class="module_item">
         <div class="item_name">
-          <%= user.email %>
+          <%= link_to user.email, :controller => 'admin/users', :action => 'edit', :id => user.id %>
         </div>
         <div class="module_item_actions">
           <p>

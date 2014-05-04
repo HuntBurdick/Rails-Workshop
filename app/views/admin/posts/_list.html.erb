@@ -14,7 +14,7 @@
 	<% for post in page.posts.order('position ASC') %>
 		<div class="module_item">
 			<div class="item_name">
-				<%= post.title %>
+				<%= link_to post.title, :controller => 'admin/posts', :action => 'edit', :id => post.id %>
 			</div>
 			<div class="module_item_actions">
 				<p>

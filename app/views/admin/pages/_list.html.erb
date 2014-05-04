@@ -1,7 +1,7 @@
 <% for page in @pages %>
 	<div class="module_item">
 		<div class="item_name">
-			<%= page.name %>
+			<%= link_to page.name, :controller => 'admin/pages', :action => 'edit', :id => page.id %>
 		</div>
 		<div class="module_item_actions">
 			<p>
