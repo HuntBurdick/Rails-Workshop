@@ -18,6 +18,8 @@ gem 'bootstrap-datepicker-rails', '~> 1.0.0.7'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'will_paginate-bootstrap'
 
+gem 'friendly_id'
+
 # Forms
 gem 'simple_form'
 

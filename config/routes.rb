@@ -4,7 +4,7 @@ CmsAdmin2::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root :to => "home#index"
+  root :to => "pages#index"
 
   # CMS root
   get 'admin' => "admin/dashboard#index"
@@ -12,6 +12,9 @@ CmsAdmin2::Application.routes.draw do
   get 'users/sign_up' => "admin/admin#index"
 
   devise_for :users
+
+  resources :pages
+  get '/:id' => "pages#show", :as => "pagelink"
 
   namespace :admin do
     resources :pages do
