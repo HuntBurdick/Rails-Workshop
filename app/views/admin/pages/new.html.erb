@@ -1,3 +1,4 @@
+<%= render :partial => 'admin/template/form_errors', :object => @page %>
 <%= simple_form_for @page, :url => url_for(:controller => 'admin/pages', :action => 'create'), :method => 'post', :html => { :role => "form" } do |form| %>
 
 	<%= render :partial => 'form', :object => form %>
