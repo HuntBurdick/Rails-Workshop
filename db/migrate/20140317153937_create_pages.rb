@@ -4,6 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :slug
       t.string :name
       t.text :body
+      t.attachment :image
       t.boolean :published, :boolean, :default => false
       t.integer :position
       t.timestamp :created_on

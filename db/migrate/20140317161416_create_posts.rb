@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :body
+      t.attachment :image
       t.integer :page_id
       t.boolean :published
       t.integer :position

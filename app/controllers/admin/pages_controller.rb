@@ -93,7 +93,7 @@ module Admin
       end
 
       def page_params
-        params.require(:page).permit( :name, :body, :published, :position, :created_on, :updated_on)
+        params.require(:page).permit( :image, :name, :body, :published, :position, :created_on, :updated_on)
       end
     
   end

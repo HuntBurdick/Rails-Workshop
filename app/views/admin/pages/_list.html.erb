@@ -8,7 +8,7 @@
 				<%= link_to(url_for(:controller => 'admin/pages', :action => 'publish', :page_id => page.id), :format => :js, :remote => true) do %>
 					<span class="glyphicon glyphicon-ok <%= page.published == true ? '' : 'dead' %>"></span>
 				<% end %>
-				<%= link_to :action => "edit", :id => page do %>
+				<%= link_to :action => "edit", :id => page.id do %>
 					<span class="glyphicon glyphicon-edit"></span>
 				<% end %>
 				<%= link_to(url_for(:controller => 'admin/pages', :action => 'destroy', :page_id => page.id), :format => :js, :remote => true, data: { confirm: 'Are you sure?' }) do %>

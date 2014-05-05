@@ -2,3 +2,9 @@
 @import 'config';
 @import 'custom';
 @import 'modules';
+
+.modal-body {
+	img {
+		width: 100%;
+	}
+}
