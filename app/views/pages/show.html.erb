@@ -4,10 +4,10 @@
 
 <div class="media">
 	<% unless @page.image.blank? %>
-	  <a class="pull-left" data-toggle="modal" data-target="#imageModal_<%= @page.id %>" href="#">
+	  <a class="pull-left" data-toggle="modal" data-target="#imageModal_<%= @page.friendly_id %>" href="#">
 	    <%= image_tag @page.image.url(:medium), :class => 'media-object' %>
 	  </a>
-	  <div class="modal fade" id="imageModal_<%= @page.id %>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	  <div class="modal fade" id="imageModal_<%= @page.friendly_id %>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 	    <div class="modal-dialog">
         <div class="modal-content">
         	<div class="modal-body">
