@@ -4,7 +4,7 @@ CmsAdmin2::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root :to => "pages#index"
+  root :to => 'pages#show', :id => '1'
 
   # CMS root
   get 'admin' => "admin/dashboard#index"

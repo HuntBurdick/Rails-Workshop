@@ -1,0 +1,27 @@
+<% for page in @pages %>
+	<div class="module_item">
+		<div class="item_name">
+			<%= link_to page.name, :controller => 'admin/pages', :action => 'edit', :id => page.id %>
+		</div>
+		<div class="module_item_actions">
+			<p>
+				<%= link_to(url_for(:controller => 'admin/pages', :action => 'publish', :page_id => page.id), :format => :js, :remote => true) do %>
+					<span class="glyphicon glyphicon-ok <%= page.published == true ? '' : 'dead' %>"></span>
+				<% end %>
+				<%= link_to :action => "edit", :id => page.id do %>
+					<span class="glyphicon glyphicon-edit"></span>
+				<% end %>
+				<%= link_to(url_for(:controller => 'admin/pages', :action => 'destroy', :page_id => page.id), :format => :js, :remote => true, data: { confirm: 'Are you sure?' }) do %>
+					<span class="glyphicon glyphicon-trash"></span>
+				<% end %>
+				<%= link_to(url_for(:controller => 'admin/pages', :action => 'move_up', :page_id => page.id), :format => :js, :remote => true) do %>
+					<span class="glyphicon glyphicon-circle-arrow-up"></span>
+				<% end %>
+				<%= link_to(url_for(:controller => 'admin/pages', :action => 'move_down', :page_id => page.id), :format => :js, :remote => true) do %>					
+					<span class="glyphicon glyphicon-circle-arrow-down"></span>
+				<% end %>
+			</p>
+		</div>
+		<div class="clearboth"></div>
+	</div>
+<% end %>
