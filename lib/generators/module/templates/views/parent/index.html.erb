@@ -1,5 +1,5 @@
-<% if @pages.blank? %>
-	<h3>No pages have been added yet.</h3>
+<% if @parent_items.blank? %>
+	<h3>None added yet.</h3>
 <% else %>
 	<div class="module_list">
 		<div class="module_actions">
@@ -14,6 +14,6 @@
 		<div class="module_partial">
 			<%= render :partial => 'list' %>
 		</div>
-		<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
+		<%= will_paginate @parent_items, renderer: BootstrapPagination::Rails %>
 	</div>
 <% end %>

@@ -1,0 +1,106 @@
+module Admin
+  
+  class <%= child_controller_name %>Controller < AdminController
+    
+    def index
+      @parent_items = <%= parent_model_name %>.paginate(:page => params[:page], :order => 'name ASC', :per_page => 10)
+    end
+    
+
+    def new
+      @child_item = <%= child_model_name %>.new
+    end
+    
+
+    def edit
+      @child_item = <%= child_model_name %>.find(params[:id])
+    end
+    
+
+    def create
+      @child_items = <%= child_model_name %>.new(parent_item_params)
+     
+      if @child_items.save
+        flash[:success] = "Successfully created."
+        redirect_to :action => 'index'
+      else
+        render :action => 'new'
+      end
+    end
+
+  
+    def update
+      @child_items = <%= child_model_name %>.find(params[:id])
+
+      respond_to do |format|
+        if @child_items.update(parent_item_params)
+          format.html { redirect_to :back, :flash => { :success => 'Successfully updated.' } }
+        else
+          format.html { render action: 'edit' }
+        end
+      end
+    end
+
+    def publish
+      child_item = <%= child_model_name %>.find(params[:child_item_id])
+      child_item.published = ( child_item.published == true ? false : true)
+      child_item.save
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def destroy
+      child_item = <%= child_model_name %>.find(params[:child_item_id])
+      child_item.destroy
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def move_up
+      child_item = <%= child_model_name %>.find(params[:child_item_id])
+      child_item.move_higher
+      child_item.save
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def move_down
+      child_item = <%= child_model_name %>.find(params[:child_item_id])
+      child_item.move_lower
+      child_item.save
+
+      respond_to do |format|
+        # format.html 
+        format.js { list_refresh }
+      end
+    end
+
+    def new_post_for
+      child_item = <%= child_model_name %>.new(:page_id => params[:child_item_id])
+      child_item.save
+      redirect_to :action => 'edit', :id => post
+    end
+
+    private
+
+      def list_refresh
+        @parent_items = <%= parent_model_name %>.paginate(:page => params[:page], :order => 'Name ASC', :per_page => 10)
+        return render(:file => "admin/<%= child_name %>/list_refresh.js.erb")
+      end
+
+      def page_params
+        params.require(:post).permit( :title, :body, :page_id, :published, :meta_description, :image, :created_on, :updated_on)
+      end
+
+  end
+
+end

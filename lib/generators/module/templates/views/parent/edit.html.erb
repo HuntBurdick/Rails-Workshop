@@ -1,5 +1,5 @@
-<%= render :partial => 'admin/template/form_errors', :object => @page %>
-<%= simple_form_for @page, :url => url_for(:controller => 'admin/pages', :action => 'update'), :method => 'put', :html => { :role => "form" } do |form| %>
+<%= render :partial => 'admin/template/form_errors', :object => @parent_item %>
+<%= simple_form_for @parent_item, :url => url_for(:controller => 'admin/pages', :action => 'update'), :method => 'put', :html => { :role => "form" } do |form| %>
 
 	<%= render :partial => 'form', :object => form %>
 	

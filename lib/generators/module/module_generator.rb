@@ -13,6 +13,19 @@ class ModuleGenerator < Rails::Generators::NamedBase
 
     directory "views/parent/", "app/views/admin/#{parent_name}/"
 
+    inject_into_file 'config/routes.rb', after: "namespace :admin do\n" do <<-'RUBY'
+		  resources :pages do
+	      collection do
+	        get 'move_up'
+	        get 'move_down'
+	        get 'publish'
+	        get 'destroy'
+	        get 'remove'
+	      end
+	    end
+		RUBY
+		end
+
     unless child_name == ''
     	# Model
 	    template "models/module.erb", "app/models/#{parent_name.singularize}.rb"
@@ -20,6 +33,20 @@ class ModuleGenerator < Rails::Generators::NamedBase
 	    template "controllers/module_controller.erb", "app/controllers/#{parent_name}_controller.rb"
 
       directory "views/child/", "app/views/admin/#{child_name}/"
+
+      inject_into_file 'config/routes.rb', after: "namespace :admin do\n" do <<-'RUBY'
+			  resources :posts do
+		      collection do
+		        get 'move_up'
+		        get 'move_down'
+		        get 'new_post_for'
+		        get 'publish'
+		        get 'destroy'
+		        get 'remove'
+		      end
+		    end
+			RUBY
+			end
     end
 
   end
