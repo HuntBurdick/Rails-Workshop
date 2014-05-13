@@ -39,7 +39,7 @@ class ModuleGenerator < Rails::Generators::NamedBase
 		      collection do
 		        get 'move_up'
 		        get 'move_down'
-		        get 'new_post_for'
+		        get 'new_child_for'
 		        get 'publish'
 		        get 'destroy'
 		        get 'remove'

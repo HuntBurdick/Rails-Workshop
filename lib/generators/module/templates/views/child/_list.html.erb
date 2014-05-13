@@ -1,41 +1,41 @@
-<% for parent_item in @parent_items %>
+<%% for parent_item in @parent_items %>
 	<div class="module_item well">
 		<div class="item_name">
 			<h5><%= parent_item.name %></h5>
 		</div>
 		<div class="module_item_actions">
 			<p>
-				<%= link_to(url_for(:controller => 'admin/posts', :action => 'new_post_for', :page_id => page.id)) do %>
+				<%%= link_to(url_for(:action => 'new_child_for', :parent_item_id => parent_item.id)) do %>
 					<span class="glyphicon glyphicon-plus"></span>
-				<% end %>
+				<%% end %>
 			</p>
 		</div>
 	</div>
-	<% for child_item in parent_item.child_items %>
+	<%% for child_item in parent_item.child_items %>
 		<div class="module_item">
 			<div class="item_name">
-				<%= link_to post.title, :controller => 'admin/posts', :action => 'edit', :id => child_item.id %>
+				<%%= link_to post.title, :action => 'edit', :id => child_item.id %>
 			</div>
 			<div class="module_item_actions">
 				<p>
-					<%= link_to(url_for(:controller => 'admin/posts', :action => 'publish', :post_id => child_item.id), :format => :js, :remote => true) do %>
-						<span class="glyphicon glyphicon-ok <%= post.published == true ? '' : 'dead' %>"></span>
-					<% end %>
-					<%= link_to :action => "edit", :id => child_item.id do %>
+					<%%= link_to(url_for(:action => 'publish', :child_item_id => child_item.id), :format => :js, :remote => true) do %>
+						<span class="glyphicon glyphicon-ok <%%= child_item.published == true ? '' : 'dead' %>"></span>
+					<%% end %>
+					<%%= link_to :action => "edit", :id => child_item.id do %>
 						<span class="glyphicon glyphicon-edit"></span>
-					<% end %>
-					<%= link_to(url_for(:controller => 'admin/posts', :action => 'destroy', :post_id => child_item.id), :format => :js, :remote => true, data: { confirm: 'Are you sure?' }) do %>
+					<%% end %>
+					<%%= link_to(url_for(:action => 'destroy', :child_item_id => child_item.id), :format => :js, :remote => true, data: { confirm: 'Are you sure?' }) do %>
 						<span class="glyphicon glyphicon-trash"></span>
-					<% end %>
-					<%= link_to(url_for(:controller => 'admin/posts', :action => 'move_up', :post_id => child_item.id), :format => :js, :remote => true) do %>
+					<%% end %>
+					<%%= link_to(url_for(:action => 'move_up', :child_item_id => child_item.id), :format => :js, :remote => true) do %>
 						<span class="glyphicon glyphicon-circle-arrow-up"></span>
-					<% end %>
-					<%= link_to(url_for(:controller => 'admin/posts', :action => 'move_down', :post_id => child_item.id), :format => :js, :remote => true) do %>					
+					<%% end %>
+					<%%= link_to(url_for(:action => 'move_down', :child_item_id => child_item.id), :format => :js, :remote => true) do %>					
 						<span class="glyphicon glyphicon-circle-arrow-down"></span>
-					<% end %>
+					<%% end %>
 				</p>
 			</div>
 			<div class="clearboth"></div>
 		</div>
-	<% end %>
-<% end %>
+	<%% end %>
+<%% end %>

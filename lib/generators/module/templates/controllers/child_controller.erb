@@ -84,7 +84,7 @@ module Admin
       end
     end
 
-    def new_post_for
+    def new_child_for
       child_item = <%= child_model_name %>.new(:page_id => params[:child_item_id])
       child_item.save
       redirect_to :action => 'edit', :id => child_item
