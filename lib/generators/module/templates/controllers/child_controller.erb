@@ -87,7 +87,7 @@ module Admin
     def new_post_for
       child_item = <%= child_model_name %>.new(:page_id => params[:child_item_id])
       child_item.save
-      redirect_to :action => 'edit', :id => post
+      redirect_to :action => 'edit', :id => child_item
     end
 
     private
@@ -98,7 +98,7 @@ module Admin
       end
 
       def page_params
-        params.require(:post).permit( :title, :body, :page_id, :published, :meta_description, :image, :created_on, :updated_on)
+        params.require(:<%= parent_name.singularize %>).permit( :title, :body, :<%= parent_name.singularize %>_id, :published, :meta_description, :image, :created_on, :updated_on)
       end
 
   end

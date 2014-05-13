@@ -93,7 +93,7 @@ module Admin
       end
 
       def page_params
-        params.require(:<%= parent_model_name.lowercase %>).permit( :image, :name, :body, :published, :position, :created_on, :updated_on)
+        params.require(:<%= parent_name.singularize %>).permit( :image, :name, :body, :published, :position, :created_on, :updated_on)
       end
     
   end
