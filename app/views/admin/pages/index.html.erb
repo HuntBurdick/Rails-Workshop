@@ -1,19 +1,19 @@
-<% if @pages.blank? %>
-	<h3>No pages have been added yet.</h3>
-<% else %>
-	<div class="module_list">
-		<div class="module_actions">
-			<h2>Pages</h2>
-			<div class="action_items">
-				<%= link_to new_admin_page_path do %>
-					<p><span class="glyphicon glyphicon-plus"></span></p>
-				<% end %>
-			</div>
-			<div class="clearboth"></div>
+<div class="module_list">
+	<div class="module_actions">
+		<h2>Pages</h2>
+		<div class="action_items">
+			<%= link_to new_admin_page_path do %>
+				<p><span class="glyphicon glyphicon-plus"></span></p>
+			<% end %>
 		</div>
-		<div class="module_partial">
-			<%= render :partial => 'list' %>
-		</div>
-		<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
+		<div class="clearboth"></div>
 	</div>
-<% end %>
+	<div class="module_partial">
+		<% if @pages.blank? %>
+			<h3>No pages have been added yet.</h3>
+		<% else %>
+			<%= render :partial => 'list' %>
+		<% end %>
+	</div>
+	<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
+</div>
