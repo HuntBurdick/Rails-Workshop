@@ -1,6 +1,6 @@
 <div class="module_list">
 	<div class="module_actions">
-		<h2>Pages</h2>
+		<h2><%= controller.module_model::MODULE_TITLE %></h2>
 		<div class="action_items">
 			<%= link_to :action => 'new' do %>
 				<p><span class="glyphicon glyphicon-plus"></span></p>
@@ -10,7 +10,7 @@
 	</div>
 	<div class="module_partial">
 		<% if @parent_items.blank? %>
-			<h3>No pages have been added yet.</h3>
+			<h3>No <%= controller.module_model::MODULE_TITLE %> have been added yet.</h3>
 		<% else %>
 			<%= render :partial => 'list' %>
 		<% end %>

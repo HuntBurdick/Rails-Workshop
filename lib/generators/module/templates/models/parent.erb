@@ -8,4 +8,6 @@ class <%= parent_model_name %> < ActiveRecord::Base
 	extend FriendlyId
   	friendly_id :name, use: :slugged
 
+  MODULE_TITLE    = <%= "#{parent_name.capitalize}" %>
+
 end

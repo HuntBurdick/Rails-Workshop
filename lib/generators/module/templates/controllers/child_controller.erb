@@ -1,6 +1,14 @@
 module Admin
   
   class <%= child_controller_name %>Controller < AdminController
+
+    def module_model
+      <%= parent_model_name %>
+    end
+    
+    def module_model_child
+      <%= child_model_name %>
+    end
     
     def index
       @parent_items = <%= parent_model_name %>.paginate(:page => params[:page], :order => 'name ASC', :per_page => 10)

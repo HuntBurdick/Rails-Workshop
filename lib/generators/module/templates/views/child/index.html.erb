@@ -1,15 +1,15 @@
 <div class="module_list">
 	<div class="module_actions">
-		<h2><%= parent_controller_name %></h2>
+		<h2><%= controller.module_model_child::MODULE_TITLE %></h2>
 		<div class="action_items">
-			<%%= link_to :action => 'new' do %>
+			<%= link_to new_admin_post_path do %>
 				<p><span class="glyphicon glyphicon-plus"></span></p>
-			<%% end %>
+			<% end %>
 		</div>
 		<div class="clearboth"></div>
 	</div>
 	<div class="module_partial">
-		<%%= render :partial => 'list' %>
+		<%= render :partial => 'list' %>
 	</div>
-	<%%= will_paginate @parent_items, renderer: BootstrapPagination::Rails %>
+	<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
 </div>
