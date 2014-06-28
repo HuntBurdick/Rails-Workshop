@@ -21,7 +21,7 @@ module Admin
       @posts = Post.new(page_params)
      
       if @posts.save
-        flash[:success] = "Page was created."
+        flash[:success] = "Post was created."
         redirect_to :action => 'index'
       else
         render :action => 'new'
@@ -32,12 +32,11 @@ module Admin
     def update
       @posts = Post.find(params[:id])
 
-      respond_to do |format|
-        if @posts.update(page_params)
-          format.html { redirect_to :back, :flash => { :success => 'Page was successfully updated.' } }
-        else
-          format.html { render action: 'edit' }
-        end
+      if @posts.update(page_params)
+        flash[:notice] = 'Post was successfully updated.'
+        redirect_to :back
+      else
+        render action: 'edit'
       end
     end
 
