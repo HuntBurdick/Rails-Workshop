@@ -10,7 +10,7 @@
   </div>
   <% unless @users.blank? %>
     <div class="module_partial">
-      <%= render :partial => 'list' %>
+      <%= render :partial => 'admin/users/list' %>
     </div>
   <% end %>
   <%= will_paginate @users, renderer: BootstrapPagination::Rails %>

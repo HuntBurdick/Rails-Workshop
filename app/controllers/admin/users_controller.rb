@@ -12,11 +12,6 @@ module Admin
 	    @users = User.paginate(:page => params[:page], :per_page => 20)
 	  end
 
-	  # GET /users/1
-	  # GET /users/1.json
-	  def show
-	  end
-
 	  # GET /users/new
 	  def new
 	    @user = User.new
@@ -35,7 +30,7 @@ module Admin
       	flash[:notice] = "User successfully created."
         redirect_to :controller => 'admin/users'
       else
-        format.html { render action: 'new' }
+        render action: 'new'
       end
 	  end
 
@@ -60,24 +55,20 @@ module Admin
 	  # DELETE /users/1
 	  # DELETE /users/1.json
 	  def destroy
-
-	    if @user.id == 1
-	    	flash[:notice] = "You can't delete the main administrator!"
-	      redirect_to users_url
-	    else
+	  	
+	    unless @user.id == 1
 	      @user.destroy
-
-	      respond_to do |format|
-	        # format.html 
-	        format.js { list_refresh }
-	      end
 	    end
+
+	    respond_to do |format|
+        format.js { list_refresh }
+      end
 	  end
 
 	  private
 
 	  	def list_refresh
-        @users = User.paginate(:page => params[:page], :order => 'position ASC', :per_page => 20)
+        @users = User.paginate(:page => params[:page], :per_page => 20)
         return render(:file => 'admin/users/list_refresh.js.erb')
       end
 
