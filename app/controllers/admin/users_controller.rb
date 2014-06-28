@@ -15,7 +15,6 @@ module Admin
 	  # GET /users/1
 	  # GET /users/1.json
 	  def show
-	  	@user = User.find(:user_id)
 	  end
 
 	  # GET /users/new
@@ -32,13 +31,12 @@ module Admin
 	  def create
 	    @user = User.new(:email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
 
-	    respond_to do |format|
-	      if @user.save
-	        format.html { redirect_to :controller => 'admin/users', notice: 'user was successfully created.' }
-	      else
-	        format.html { render action: 'new' }
-	      end
-	    end
+      if @user.save
+      	flash[:notice] = "User successfully created."
+        redirect_to :controller => 'admin/users'
+      else
+        format.html { render action: 'new' }
+      end
 	  end
 
 	  # PATCH/PUT /users/1
@@ -50,32 +48,39 @@ module Admin
 	      user_params.delete("password_confirmation")
 	    end
 
-	    respond_to do |format|
-	      if @user.update(user_params)
-	        format.html { redirect_to @user, notice: 'user was successfully updated.' }
-	        format.json { head :no_content }
-	      else
-	        format.html { render action: 'edit' }
-	        format.json { render json: @user.errors, status: :unprocessable_entity }
-	      end
+
+	    if @user.update(user_params)
+	    	flash[:notice] = "User successfully updated."
+	      redirect_to :action => 'edit'
+	    else
+	      render action: 'edit'
 	    end
 	  end
 
 	  # DELETE /users/1
 	  # DELETE /users/1.json
 	  def destroy
+
 	    if @user.id == 1
-	      redirect_to users_url, notice: "You can't delete the main administrator!"
+	    	flash[:notice] = "You can't delete the main administrator!"
+	      redirect_to users_url
 	    else
 	      @user.destroy
+
 	      respond_to do |format|
-	        format.html { redirect_to users_url }
-	        format.json { head :no_content }
+	        # format.html 
+	        format.js { list_refresh }
 	      end
 	    end
 	  end
 
 	  private
+
+	  	def list_refresh
+        @users = User.paginate(:page => params[:page], :order => 'position ASC', :per_page => 20)
+        return render(:file => 'admin/users/list_refresh.js.erb')
+      end
+
 	    # Use callbacks to share common setup or constraints between actions.
 	    def set_user
 	      @user = User.find(params[:id])

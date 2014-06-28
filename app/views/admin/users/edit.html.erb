@@ -1,5 +1,6 @@
 <%= render :partial => 'admin/template/form_errors', :object => @user %>
-<%= simple_form_for @user, :url => url_for(:controller => 'admin/users', :action => 'edit'), :method => 'post', :html => { :role => "form" } do |form| %>
+
+<%= simple_form_for @user, :url => url_for(:controller => 'admin/users', :action => 'update'), :method => 'put', :html => { :role => "form" } do |form| %>
 
 	<%= render :partial => 'form', :object => form %>
 	

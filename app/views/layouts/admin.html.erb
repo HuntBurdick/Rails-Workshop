@@ -22,7 +22,7 @@
 			<%= render :partial => 'admin/template/menu.html.erb' %>
 
 			<div class="admin_content">
-				<%= render :partial => 'template/alerts' %>
+				<%= render :partial => 'admin/template/alerts' %>
 				<div class="container">
 					<%= yield %>
 					<div class="copyright">
@@ -31,6 +31,6 @@
 				</div>
 			</div>
 
-			<%= javascript_include_tag :application, "data-turbolinks-track" => true %>
+			<%= javascript_include_tag "admin/application", "data-turbolinks-track" => true %>
 		</body>
 </html>
