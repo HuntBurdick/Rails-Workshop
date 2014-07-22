@@ -1,5 +1,5 @@
 <% if params[:page_id].blank? %>
-	<%= form.input :page_id, collection: Page.find(:all, :order => "name DESC") %>
+	<%= form.input :page_id, collection: Page.all.order("name DESC") %>
 <% else %>
 	<%= form.input :page_id, selected: params[:page_id], collection: @pages %>
 <% end %>

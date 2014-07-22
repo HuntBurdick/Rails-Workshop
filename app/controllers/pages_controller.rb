@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.friendly.find(params[:id])
-    @posts = Post.find(:all, :conditions => ["page_id = ? AND published = ?", @page.id, true], :order => "position ASC")
+    @posts = Post.where(:page_id => @page.id, :published => true).order("position ASC")
     respond_to do |format|
       format.html
     end
