@@ -8,6 +8,7 @@ module Admin
     
 
     def new
+      @pages = Page.all
       @post = Post.new
     end
     
@@ -81,12 +82,6 @@ module Admin
         # format.html 
         format.js { list_refresh }
       end
-    end
-
-    def new_post_for
-      post = Post.new(:page_id => params[:page_id])
-      post.save
-      redirect_to :action => 'edit', :id => post
     end
 
     private

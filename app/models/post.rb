@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+	validates :title, :body, :page_id, presence: true
+
 	acts_as_list
 	belongs_to :page
 
