@@ -3,3 +3,4 @@
 log/development.log
 tmp/**/*
 public/system/*
+config/database.yml

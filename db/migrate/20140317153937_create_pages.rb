@@ -5,7 +5,9 @@ class CreatePages < ActiveRecord::Migration
       t.string :name
       t.text :body
       t.attachment :image
-      t.boolean :published, :boolean, :default => false
+      t.boolean :published, :boolean, :default => true
+      t.boolean :show_in_menu, :boolean, :default => true
+      t.boolean :only_for_logged_in_members, :default => false
       t.integer :position
       t.timestamp :created_on
       t.timestamp :updated_on
