@@ -25,7 +25,9 @@
 				<div class="container">
 					<%= render :partial => 'admin/template/breadcrumbs' %>
 					<%= render :partial => 'admin/template/alerts' %>
-					<%= yield %>
+					<div class="admin_body">
+						<%= yield %>
+					</div>	
 					<div class="copyright">
 						<%= Time.now.year %> &copy; CMS Admin2
 					</div>
