@@ -19,7 +19,7 @@
    	</div>
 	<% end %>
   <div class="media-body">
-    <%= @page.body %>
+    <%= redcloth(@page.body) %>
   </div>
 </div>
 
@@ -44,7 +44,7 @@
 		<% end %>
 	  <div class="media-body">
 	    <h2 class="media-heading"><%= post.title %></h2>
-	    <%= post.body %>
+	    <%= redcloth(post.body) %>
 	  </div>
 	</div>
 	<% unless post == @posts.last %>

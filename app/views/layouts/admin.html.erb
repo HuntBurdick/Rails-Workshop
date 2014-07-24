@@ -22,8 +22,9 @@
 			<%= render :partial => 'admin/template/menu.html.erb' %>
 
 			<div class="admin_content">
-				<%= render :partial => 'admin/template/alerts' %>
 				<div class="container">
+					<%= render :partial => 'admin/template/breadcrumbs' %>
+					<%= render :partial => 'admin/template/alerts' %>
 					<%= yield %>
 					<div class="copyright">
 						<%= Time.now.year %> &copy; CMS Admin2

@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(version: 20140504211212) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "published",          default: false
-    t.boolean  "boolean",            default: true
-    t.boolean  "show_in_menu",       default: true
+    t.boolean  "published",                  default: true
+    t.boolean  "boolean",                    default: true
+    t.boolean  "show_in_menu",               default: true
+    t.boolean  "only_for_logged_in_members", default: false
     t.integer  "position"
     t.datetime "created_on"
     t.datetime "updated_on"
