@@ -4,7 +4,7 @@ module Admin
 
   	layout 'admin'
 
-	  before_action :set_user, only: [:show, :edit, :update, :destroy]
+	  before_action :set_user, only: [:show, :edit, :update]
 
 	  # GET /users
 	  # GET /users.json
@@ -55,7 +55,8 @@ module Admin
 	  # DELETE /users/1
 	  # DELETE /users/1.json
 	  def destroy
-	  	
+	  	@user = User.find(params[:user_id])
+
 	    unless @user.id == 1
 	      @user.destroy
 	    end
