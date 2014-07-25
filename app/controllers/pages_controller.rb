@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     @page = Page.friendly.find(params[:id])
     @posts = Post.where(:page_id => @page.id, :published => true).order("position ASC")
 
-    send(@page.name.parameterize)
+    send(@page.name.parameterize) rescue nil
     # home
 
     respond_to do |format|
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   private
     def home
       # Resources for page modules can be set here.
-      
+
     end
 
 end
