@@ -1,5 +1,11 @@
+<%= render :partial => "page_modules/#{@page.name.parameterize}" rescue nil %>
+
 <div class="page-header">
   <h1><%= @page.name %><small></small></h1>
+</div>
+
+<div class="page_top">
+	<%= yield :page_top %>
 </div>
 
 <div class="media">
@@ -21,6 +27,10 @@
   <div class="media-body">
     <%= redcloth(@page.body) %>
   </div>
+</div>
+
+<div class="page_bottom">
+	<%= yield :page_bottom %>
 </div>
 
 <hr />
@@ -51,3 +61,7 @@
 		<hr />
 	<% end %>
 <% end %>
+
+<div class="after_posts">
+	<%= yield :after_posts %>
+</div>
