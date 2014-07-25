@@ -21,13 +21,17 @@ CMS_Admin2 is a simple approach to content management. The system revolves aroun
 
 == Custom Page Modules
 
-There are three pre-defined module positions within each page.
+There are five pre-defined module positions within each page.
 
 page_top
 
 page_bottom
 
 after_posts
+
+side_left
+
+side_right
 
 To utilize these positions, create a partial file in the 'page_modules' view folder with the same name as the page. An example is included for the home page.
 

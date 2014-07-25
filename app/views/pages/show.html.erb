@@ -4,64 +4,81 @@
   <h1><%= @page.name %><small></small></h1>
 </div>
 
-<div class="page_top">
-	<%= yield :page_top %>
-</div>
 
-<div class="media">
-	<% unless @page.image.blank? %>
-	  <a class="pull-left" data-toggle="modal" data-target="#imageModal_<%= @page.friendly_id %>" href="#">
-	    <%= image_tag @page.image.url(:medium), :class => 'media-object' %>
-	  </a>
-	  <div class="modal fade" id="imageModal_<%= @page.friendly_id %>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-	    <div class="modal-dialog">
-        <div class="modal-content">
-        	<div class="modal-body">
-        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        		<%= image_tag @page.image.url(:large), :class => 'media-object' %>
-        	</div>
-        </div>
-	    </div>
-   	</div>
-	<% end %>
-  <div class="media-body">
-    <%= redcloth(@page.body) %>
-  </div>
-</div>
-
-<div class="page_bottom">
-	<%= yield :page_bottom %>
-</div>
-
-<hr />
-
-<% for post in @posts %>
-	<div class="media">
-		<% unless post.image.blank? %>
-		  <a class="pull-left" data-toggle="modal" data-target="#imageModal_<%= post.id %>" href="#">
-		    <%= image_tag post.image.url(:medium), :class => 'media-object' %>
-		  </a>
-		  <div class="modal fade" id="imageModal_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-		    <div class="modal-dialog">
-	        <div class="modal-content">
-	        	<div class="modal-body">
-	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        		<%= image_tag post.image.url(:large), :class => 'media-object' %>
-	        	</div>
-	        </div>
-		    </div>
-	   	</div>
-		<% end %>
-	  <div class="media-body">
-	    <h2 class="media-heading"><%= post.title %></h2>
-	    <%= redcloth(post.body) %>
-	  </div>
+<div class="row">
+	<div class="col-md-<%= content_for?(:side_left) ? '4' : '0' %>">
+		<%= yield :side_left %>
 	</div>
-	<% unless post == @posts.last %>
-		<hr />
+	<% if content_for?(:side_left) && content_for?(:side_right) %>
+		<div class="col-md-4">
+	<% elsif content_for?(:side_left) && content_for?(:side_right).blank? || content_for?(:side_left).blank? && content_for?(:side_right) %>
+		<div class="col-md-8">
+	<% else %>
+		<div class="col-md-12">
 	<% end %>
-<% end %>
+		<div class="page_top">
+			<%= yield :page_top %>
+		</div>
 
-<div class="after_posts">
-	<%= yield :after_posts %>
+		<div class="media">
+			<% unless @page.image.blank? %>
+			  <a class="pull-left" data-toggle="modal" data-target="#imageModal_<%= @page.friendly_id %>" href="#">
+			    <%= image_tag @page.image.url(:medium), :class => 'media-object' %>
+			  </a>
+			  <div class="modal fade" id="imageModal_<%= @page.friendly_id %>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+			    <div class="modal-dialog">
+		        <div class="modal-content">
+		        	<div class="modal-body">
+		        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        		<%= image_tag @page.image.url(:large), :class => 'media-object' %>
+		        	</div>
+		        </div>
+			    </div>
+		   	</div>
+			<% end %>
+		  <div class="media-body">
+		    <%= redcloth(@page.body) %>
+		  </div>
+		</div>
+
+		<div class="page_bottom">
+			<%= yield :page_bottom %>
+		</div>
+
+		<hr />
+
+		<% for post in @posts %>
+			<div class="media">
+				<% unless post.image.blank? %>
+				  <a class="pull-left" data-toggle="modal" data-target="#imageModal_<%= post.id %>" href="#">
+				    <%= image_tag post.image.url(:medium), :class => 'media-object' %>
+				  </a>
+				  <div class="modal fade" id="imageModal_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+				    <div class="modal-dialog">
+			        <div class="modal-content">
+			        	<div class="modal-body">
+			        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        		<%= image_tag post.image.url(:large), :class => 'media-object' %>
+			        	</div>
+			        </div>
+				    </div>
+			   	</div>
+				<% end %>
+			  <div class="media-body">
+			    <h2 class="media-heading"><%= post.title %></h2>
+			    <%= redcloth(post.body) %>
+			  </div>
+			</div>
+			<% unless post == @posts.last %>
+				<hr />
+			<% end %>
+		<% end %>
+
+		<div class="after_posts">
+			<%= yield :after_posts %>
+		</div>
+	</div>
+	<div class="col-md-<%= content_for?(:side_left) ? '4' : '0' %>">
+		<%= yield :side_right %>
+	</div>
 </div>
