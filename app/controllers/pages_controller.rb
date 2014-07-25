@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       @posts = Post.where(:page_id => @page.id, :published => true).order("position ASC")
       send(@page.name.parameterize) rescue nil
     else
-      flash[:error] = "This page is private."
+      flash[:alert] = "This page is private."
       redirect_to '/'
     end
   end
