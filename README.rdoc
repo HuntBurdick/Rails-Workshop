@@ -1,4 +1,4 @@
-== cms_admin2
+= cms_admin2
 ==========
 
 Rails 4 / Twitter Bootstrap 3 CMS. Pages, posts and users.
@@ -23,11 +23,11 @@ CMS_Admin2 is a simple approach to content management. The system revolves aroun
 
 There are three pre-defined module positions within each page.
 
-= page_top
+page_top
 
-= page_bottom
+page_bottom
 
-= after_posts
+after_posts
 
 To utilize these positions, create a partial file in the 'page_modules' view folder with the same name as the page. An example is included for the home page.
 
