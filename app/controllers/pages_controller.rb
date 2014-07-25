@@ -5,7 +5,9 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.friendly.find(params[:id])
+    @page             = Page.friendly.find(params[:id])
+    @page_title       = label_for_string(@page.name)
+    @page_description = @page.body.blank? ? '' : @page.body.truncate(60)
 
     if @page.only_for_logged_in_members == false || @page.only_for_logged_in_members == true && user_signed_in?
       @posts = Post.where(:page_id => @page.id, :published => true).order("position ASC")

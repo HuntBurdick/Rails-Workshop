@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
-  <li><%= link_to label_for(params[:controller]), :controller => params[:controller], :action => 'index' %></li>
+  <li><%= link_to label_for_param(params[:controller]), :controller => params[:controller], :action => 'index' %></li>
   <% unless params[:action] == 'index' %>
-	  <li><%= label_for(params[:action]) %></li>
+	  <li><%= label_for_param(params[:action]) %></li>
 	<% end %>
 </ol>

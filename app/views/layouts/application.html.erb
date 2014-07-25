@@ -4,7 +4,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
-	  <title>CmsAdmin2</title>
+	  <title>CmsAdmin2 <%= @page_title.blank? ? '' : "| #{@page_title}" %></title>
+	  <meta name="description" content="<%= @page_description.blank? ? '' : @page_description %>">
 	  <%= stylesheet_link_tag  "public/application", media: "all", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
 	</head>

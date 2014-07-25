@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
 		'/admin'
 	end
 
+	def label_for_string(string)
+		string.gsub("admin/", "").gsub("_", " ").titleize
+	end
+
 end
