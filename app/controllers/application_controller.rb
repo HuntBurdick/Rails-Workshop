@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :menu_pages
 
   def menu_pages
-		@pages = Page.where(:show_in_menu => true, :published => true).order('position ASC')
+  	if user_signed_in?
+			@pages = Page.where(:show_in_menu => true, :published => true).order('position ASC')
+		else 
+			@pages = Page.where(:only_for_logged_in_members => false, :show_in_menu => true, :published => true).order('position ASC')
+		end
 	end
 
   def after_sign_in_path_for(resource)
