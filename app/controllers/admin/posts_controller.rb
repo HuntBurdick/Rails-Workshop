@@ -19,9 +19,9 @@ module Admin
     
 
     def create
-      @posts = Post.new(page_params)
+      @post = Post.new(post_params)
      
-      if @posts.save
+      if @post.save
         flash[:success] = "Post was created."
         redirect_to :action => 'index'
       else
@@ -31,9 +31,9 @@ module Admin
 
   
     def update
-      @posts = Post.find(params[:id])
+      @post = Post.find(params[:id])
 
-      if @posts.update(page_params)
+      if @post.update(post_params)
         flash[:notice] = 'Post was successfully updated.'
         redirect_to :back
       else
@@ -91,7 +91,7 @@ module Admin
         return render(:file => 'admin/posts/list_refresh.js.erb')
       end
 
-      def page_params
+      def post_params
         params.require(:post).permit( :title, :body, :page_id, :published, :meta_description, :image, :created_on, :updated_on)
       end
 
