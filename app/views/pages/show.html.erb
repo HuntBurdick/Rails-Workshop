@@ -65,7 +65,7 @@
 			   	</div>
 				<% end %>
 			  <div class="media-body">
-			    <h2 class="media-heading"><%= post.title %></h2>
+			    <h2 class="media-heading"><%= link_to post.title, post %></h2>
 			    <%= redcloth(post.body) %>
 			  </div>
 			</div>

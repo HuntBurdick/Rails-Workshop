@@ -31,8 +31,6 @@ GEM
     acts_as_list (0.4.0)
       activerecord (>= 3.0)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (2.1.1.20140710)
-      execjs
     bcrypt (3.1.7)
     bootstrap-datepicker-rails (1.0.0.7)
       railties (>= 3.0)
@@ -151,7 +149,6 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   acts_as_list
-  autoprefixer-rails
   bootstrap-datepicker-rails (~> 1.0.0.7)
   bootstrap-sass (~> 3.2.0)
   cancan

@@ -15,6 +15,7 @@ CmsAdmin2::Application.routes.draw do
   devise_for :users
 
   resources :pages
+  resources :posts
   get '/:id' => "pages#show", :as => "pagelink"
 
   namespace :admin do

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page             = Page.friendly.find(params[:id])
+    set_page
     @page_title       = label_for_string(@page.name)
     @page_description = @page.body.blank? ? '' : @page.body.truncate(60)
 
@@ -19,7 +19,12 @@ class PagesController < ApplicationController
   end
 
   private
+    def set_page
+      @page = Page.friendly.find(params[:id])
+    end
+
     def home
+      set_page
       # Resources for page modules can be set here.
     end
 

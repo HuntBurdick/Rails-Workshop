@@ -17,7 +17,7 @@ gem 'RedCloth'
 gem 'bootstrap-datepicker-rails', '~> 1.0.0.7'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'will_paginate-bootstrap'
-gem 'autoprefixer-rails'
+# gem 'autoprefixer-rails'
 
 
 gem 'friendly_id'
