@@ -15,7 +15,7 @@ Pass: password
 
 == Introduction
 
-CMS_Admin2 is a simple approach to content management. The system revolves around Pages and Posts. Each Page can have many posts.
+CMS_Admin2 is a simple approach to content management. The system revolves around Pages and Posts. Each Page can have many posts and posts can be anything (blog posts, products, events, etc...). 
 
 -------------------
 
