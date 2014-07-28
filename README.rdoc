@@ -17,11 +17,7 @@ Pass: password
 
 CMS_Admin2 is a simple approach to content management. The system revolves around Pages and Posts. Each Page can have many posts and posts can be anything (blog posts, products, events, etc...).
 
-Main Dependencies: 
-Twitter Bootstrap
-Devise
-RedCloth
-Simple Form
+Main Dependencies: Twitter Bootstrap, Devise, RedCloth, Simple Form, Acts as List, Paperclip, Friendly Id.
 
 
 -------------------
@@ -41,6 +37,8 @@ side_left
 side_right
 
 To utilize these positions, create a partial file in the 'page_modules' view folder with the same name as the page. An example is included for the home page.
+
+If custom objects are needed for your page module, then create a method in the pages controller under private with the same name as the page. When the corresponding page is loaded, so will the custom objects within this method. The home page structure is laid out as an example.
 
 
 -------------------
