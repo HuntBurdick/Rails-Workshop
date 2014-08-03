@@ -17,6 +17,11 @@ Pass: password
 
 CMS_Admin2 is a simple approach to content management. The system revolves around Pages and Posts. Each Page can have many posts and posts can be anything (blog posts, products, events, etc...).
 
+== Custom Post Type
+
+Posts is a general term used for anything that can belong to a page. In order to post products on a 'store' page, you will have to create a partial titled '_form_for_store.html.erb' in the view/admin/posts folder. Create a migration to add the desired fields to posts and add the fields to the form partial with the Simple Form format. Now when creating or editing a product your custom form partial will be rendered in place of the default form.
+
+
 Main Dependencies: Twitter Bootstrap, Devise, RedCloth, Simple Form, Acts as List, Paperclip, Friendly Id.
 
 
