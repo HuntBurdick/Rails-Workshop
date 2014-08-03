@@ -10,11 +10,13 @@ module Admin
     def new
       @pages = Page.all
       @post = Post.new
+      @page = Page.find(params[:page_id])
     end
     
 
     def edit
       @post = Post.find(params[:id])
+      @page = Page.find(params[:page_id])
     end
     
 
@@ -92,7 +94,7 @@ module Admin
       end
 
       def post_params
-        params.require(:post).permit( :title, :body, :page_id, :published, :meta_description, :image, :created_on, :updated_on)
+        params.require(:post).permit( :price, :quantity, :title, :body, :page_id, :published, :meta_description, :image, :created_on, :updated_on)
       end
 
   end

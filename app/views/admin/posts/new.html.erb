@@ -2,7 +2,7 @@
 
 <%= simple_form_for @post, :url => url_for(:controller => 'admin/posts', :action => 'create'), :method => 'post', :html => { :role => "form" } do |form| %>
 
-	<%= render :partial => 'form', :object => form %>
+	<%= render :partial => "form_for_#{@page.form_title}", :locals => { :form => form } rescue render :partial => "form", :object => form %>
 	
 	<%= submit_tag 'Submit', :class => 'btn btn-primary' %>
 

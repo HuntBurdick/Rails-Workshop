@@ -11,6 +11,10 @@ class Page < ActiveRecord::Base
   	"Pages"
   end
 
+  def form_title
+  	name.downcase.gsub(' ', '_')
+  end
+
 	extend FriendlyId
   	friendly_id :name, use: :slugged
 end

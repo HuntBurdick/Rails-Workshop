@@ -14,14 +14,14 @@
 	<% for post in page.posts.order('position ASC') %>
 		<div class="module_item">
 			<div class="item_name">
-				<%= link_to post.title, :controller => 'admin/posts', :action => 'edit', :id => post.id %>
+				<%= link_to post.title, :controller => 'admin/posts', :action => 'edit', :id => post.id, :page_id => page.id %>
 			</div>
 			<div class="module_item_actions">
 				<p>
 					<%= link_to(url_for(:controller => 'admin/posts', :action => 'publish', :post_id => post.id), :format => :js, :remote => true) do %>
 						<span class="glyphicon glyphicon-ok <%= post.published == true ? '' : 'dead' %>"></span>
 					<% end %>
-					<%= link_to :controller => 'admin/posts', :action => "edit", :id => post.id do %>
+					<%= link_to :controller => 'admin/posts', :action => "edit", :id => post.id, :page_id => page.id do %>
 						<span class="glyphicon glyphicon-edit"></span>
 					<% end %>
 					<%= link_to(url_for(:controller => 'admin/posts', :action => 'destroy', :post_id => post.id), :format => :js, :remote => true, data: { confirm: 'Are you sure?' }) do %>
