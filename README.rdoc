@@ -22,9 +22,6 @@ CMS_Admin2 is a simple approach to content management. The system revolves aroun
 Posts is a general term used for anything that can belong to a page. In order to post products on a 'store' page, you will have to create a partial titled '_form_for_store.html.erb' in the view/admin/posts folder. Create a migration to add the desired fields to posts and add the fields to the form partial with the Simple Form format. Now when creating or editing a product your custom form partial will be rendered in place of the default form.
 
 
-Main Dependencies: Twitter Bootstrap, Devise, RedCloth, Simple Form, Acts as List, Paperclip, Friendly Id.
-
-
 -------------------
 
 == Custom Page Modules
@@ -44,6 +41,10 @@ side_right
 To utilize these positions, create a partial file in the 'page_modules' view folder with the same name as the page. An example is included for the home page.
 
 If custom objects are needed for your page module, then create a method in the pages controller under private with the same name as the page. When the corresponding page is loaded, so will the custom objects within this method. The home page structure is laid out as an example.
+
+
+
+Main Dependencies: Twitter Bootstrap, Devise, RedCloth, Simple Form, Acts as List, Paperclip, Friendly Id.
 
 
 -------------------
