@@ -22,6 +22,7 @@ module Admin
 
     def create
       @post = Post.new(post_params)
+      @page = Page.find(params[:post][:page_id])
      
       if @post.save
         flash[:success] = "Post was created."
@@ -34,6 +35,7 @@ module Admin
   
     def update
       @post = Post.find(params[:id])
+      @page = @post.page
 
       if @post.update(post_params)
         flash[:notice] = 'Post was successfully updated.'
