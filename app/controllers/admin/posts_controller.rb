@@ -3,7 +3,7 @@ module Admin
   class PostsController < AdminController
     
     def index
-      @pages = Page.paginate(:page => params[:page], :per_page => 10).order('position ASC')
+      @pages = Page.paginate(:page => params[:page], :per_page => 10).order('name ASC')
     end
     
 
@@ -91,7 +91,7 @@ module Admin
     private
 
       def list_refresh
-        @pages = Page.paginate(:page => params[:page], :per_page => 10).order('position ASC')
+        @pages = Page.paginate(:page => params[:page], :per_page => 10).order('name ASC')
         return render(:file => 'admin/posts/list_refresh.js.erb')
       end
 
