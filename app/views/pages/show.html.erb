@@ -48,7 +48,7 @@
 		<hr />
 
 		<% unless @posts.blank? %>
-			<%= render :partial => "posts/list_for_#{@page.name.parameterize}" rescue render :partial => 'posts/list' %>
+			<%= render :partial => "posts/list/list_for_#{@page.name.parameterize}" rescue render :partial => 'posts/list/list' %>
 		<% end %>
 
 		<div class="after_posts">
