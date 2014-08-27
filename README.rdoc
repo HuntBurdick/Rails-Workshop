@@ -43,6 +43,15 @@ To utilize these positions, create a partial file in the 'page_modules' view fol
 If custom objects are needed for your page module, then create a method in the pages controller under private with the same name as the page. When the corresponding page is loaded, so will the custom objects within this method. The home page structure is laid out as an example.
 
 
+---------------------
+
+== Custom Post List for Specific Page
+
+To customize the post list layout for a page, create a file in the "posts" folder with the format "_list_for_example.html.erb", where "example" would be the page name.
+
+
+
+-------------------
 
 Main Dependencies: Twitter Bootstrap, Devise, RedCloth, Simple Form, Acts as List, Paperclip, Friendly Id.
 
