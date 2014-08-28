@@ -14,7 +14,7 @@
 		  <%= yield :stylesheets %>
 
 		  <%= csrf_meta_tags %>
-
+		  <%= javascript_include_tag "admin/application", "data-turbolinks-track" => true %>
     </head>
     
     <body>
@@ -34,6 +34,5 @@
 				</div>
 			</div>
 
-			<%= javascript_include_tag "admin/application", "data-turbolinks-track" => true %>
 		</body>
 </html>
