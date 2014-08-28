@@ -12,10 +12,11 @@
 	</head>
 	<body>
 		<%= render :partial => 'template/menu' %>
+		<%= yield :banner_top %>
 		<%= render :partial => 'template/alerts' %>
 		<div class="container">
 			<%= yield %>
 		</div>
-
+		<%= yield :banner_bottom %>
 	</body>
 </html>
