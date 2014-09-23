@@ -1,0 +1,59 @@
+.navbar {
+	margin-bottom: 0px;
+}
+
+.blue {
+	background: #1276ff;
+	color:#fff;
+	padding:16px 16px 40px 16px;
+}
+
+.red {
+	background: #870601;
+	padding:30px 16px;
+	color: #fff;
+	.container {
+		width: 100%;
+		max-width: 1000px;
+		.logo {
+			width: 100%;
+			max-width: 432px;
+			margin:0 auto;
+			img {
+				width: 100%;
+			}
+		}
+		.feature_text {
+			text-align: center;
+			position: relative;
+			top:-28px;
+			@include respond-to(768) {
+				margin-top: 120px;
+			}
+			@include respond-to(865) {
+				margin-top:100px;
+				top:0px;
+			}
+			h1 {
+				font-size: 3em;
+				font-family: 'Lobster', cursive;
+				@include respond-to(768) {
+					font-size: 4em;
+				}
+				@include respond-to(865) {
+					font-size: 5em;
+				}
+			}
+			h2 {
+				font-size: 2.5em;
+				font-family: 'Lobster', cursive;
+				@include respond-to(768) {
+					font-size: 3.5em;
+				}
+				@include respond-to(865) {
+					font-size: 4.5em;
+				}
+			}
+		}
+	}
+}

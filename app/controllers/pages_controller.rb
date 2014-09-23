@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def show
     set_page
+    
     @page_title       = label_for_string(@page.name)
     @page_description = @page.body.blank? ? '' : @page.body.truncate(60)
 

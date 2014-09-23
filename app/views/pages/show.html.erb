@@ -1,8 +1,10 @@
 <%= render :partial => "page_modules/#{@page.name.parameterize}" rescue nil %>
 
-<div class="page-header">
-  <h1><%= @page.name %><small></small></h1>
-</div>
+<% if @page.id == 1 %>
+	<div class="page-header">
+	  <h1>About <small>the workshop</small></h1>
+	</div>
+<% end %>
 
 
 <div class="row">
