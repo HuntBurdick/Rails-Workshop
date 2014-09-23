@@ -4,10 +4,11 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
-	  <title>CmsAdmin2 <%= @page_title.blank? ? '' : "| #{@page_title}" %></title>
+	  <title>El Paso Ruby on Rails Workshop <%= @page_title.blank? ? '' : "| #{@page_title}" %></title>
 	  <meta name="description" content="<%= @page_description.blank? ? '' : @page_description %>">
 	  <%= stylesheet_link_tag  "public/application", media: "all", "data-turbolinks-track" => true %>
 	  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	  <%= csrf_meta_tags %>
 	  <%= javascript_include_tag "public/application", "data-turbolinks-track" => true %>
 	</head>
