@@ -6,6 +6,7 @@
 	background: #1276ff;
 	color:#fff;
 	padding:16px 16px 40px 16px;
+	text-align: center;
 }
 
 .red {
@@ -54,6 +55,22 @@
 					font-size: 4.5em;
 				}
 			}
+		}
+	}
+}
+
+.home_layout {
+	margin-bottom: 20px;
+	.home_post {
+		margin-top:0px;
+		.media-body {
+		p {
+			color:#777777;
+		}
+		.media-heading {
+			font-size: 1.4em;
+			font-weight: bold;
+		}
 		}
 	}
 }

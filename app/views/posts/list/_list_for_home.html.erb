@@ -1,0 +1,16 @@
+<% for row in @posts.in_groups_of(3) do %>
+	<div class="row home_layout">
+		<% for post in row %>
+			<% unless post.blank? %>
+				<div class="media home_post col-sm-4">
+				  <div class="media-body">
+				    <h2 class="media-heading">
+				    	<%= post.title %>
+				    </h2>
+				    <%= redcloth(post.body) %>
+				  </div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>
