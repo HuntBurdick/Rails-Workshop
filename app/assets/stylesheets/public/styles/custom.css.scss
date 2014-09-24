@@ -3,10 +3,14 @@
 }
 
 .blue {
-	background: #1276ff;
+	margin-top: 50px;
+	background: #000;
 	color:#fff;
 	padding:16px 16px 40px 16px;
 	text-align: center;
+	.heading {
+		margin-bottom:50px;
+	}
 }
 
 .red {
@@ -71,6 +75,20 @@
 			font-size: 1.4em;
 			font-weight: bold;
 		}
+		}
+	}
+}
+
+.instructors {
+	.instructor {
+		padding:16px;
+		.photo {
+			width: 100%;
+			max-width: 280px;
+			margin:0 auto;
+			img {
+				width: 100%;
+			}
 		}
 	}
 }
