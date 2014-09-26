@@ -17,8 +17,8 @@ development:
   database: rails_workshop
   pool: 5
   username: postgres
-  password: freeride
-  port: 5432 
+  password: password
+  port: 5433
   host: localhost
 
 # For Work Use
